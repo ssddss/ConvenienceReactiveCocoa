@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C676389FC84976C3461845F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5C570797CBEDCD19BCA6D /* libPods.a */; };
+		38AA574D1B8D6AF10006D372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA574C1B8D6AF10006D372 /* main.m */; };
+		38AA57501B8D6AF10006D372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA574F1B8D6AF10006D372 /* AppDelegate.m */; };
+		38AA57531B8D6AF10006D372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57521B8D6AF10006D372 /* ViewController.m */; };
+		38AA57561B8D6AF10006D372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AA57541B8D6AF10006D372 /* Main.storyboard */; };
+		38AA57581B8D6AF10006D372 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AA57571B8D6AF10006D372 /* Images.xcassets */; };
+		38AA575B1B8D6AF10006D372 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AA57591B8D6AF10006D372 /* LaunchScreen.xib */; };
+		38AA57671B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57661B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38AA57611B8D6AF10006D372 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38AA573F1B8D6AF10006D372 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38AA57461B8D6AF10006D372;
+			remoteInfo = ConvenieceReactiveCocao;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B4A8B86A5C6F8E8B4839CAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		38AA57471B8D6AF10006D372 /* ConvenieceReactiveCocao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvenieceReactiveCocao.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38AA574B1B8D6AF10006D372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38AA574C1B8D6AF10006D372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		38AA574E1B8D6AF10006D372 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		38AA574F1B8D6AF10006D372 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		38AA57511B8D6AF10006D372 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		38AA57521B8D6AF10006D372 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		38AA57551B8D6AF10006D372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38AA57571B8D6AF10006D372 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		38AA575A1B8D6AF10006D372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		38AA57601B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvenieceReactiveCocaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38AA57651B8D6AF10006D372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38AA57661B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConvenieceReactiveCocaoTests.m; sourceTree = "<group>"; };
+		8202997FCE345F25E4747FB1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F5B5C570797CBEDCD19BCA6D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38AA57441B8D6AF10006D372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C676389FC84976C3461845F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38AA575D1B8D6AF10006D372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38AA573E1B8D6AF10006D372 = {
+			isa = PBXGroup;
+			children = (
+				38AA57491B8D6AF10006D372 /* ConvenieceReactiveCocao */,
+				38AA57631B8D6AF10006D372 /* ConvenieceReactiveCocaoTests */,
+				38AA57481B8D6AF10006D372 /* Products */,
+				D5DCAF89B9A232C9B5E2DEDD /* Pods */,
+				74352DB7E40B10A0583CA7D6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		38AA57481B8D6AF10006D372 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38AA57471B8D6AF10006D372 /* ConvenieceReactiveCocao.app */,
+				38AA57601B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38AA57491B8D6AF10006D372 /* ConvenieceReactiveCocao */ = {
+			isa = PBXGroup;
+			children = (
+				38AA574E1B8D6AF10006D372 /* AppDelegate.h */,
+				38AA574F1B8D6AF10006D372 /* AppDelegate.m */,
+				38AA57511B8D6AF10006D372 /* ViewController.h */,
+				38AA57521B8D6AF10006D372 /* ViewController.m */,
+				38AA57541B8D6AF10006D372 /* Main.storyboard */,
+				38AA57571B8D6AF10006D372 /* Images.xcassets */,
+				38AA57591B8D6AF10006D372 /* LaunchScreen.xib */,
+				38AA574A1B8D6AF10006D372 /* Supporting Files */,
+			);
+			path = ConvenieceReactiveCocao;
+			sourceTree = "<group>";
+		};
+		38AA574A1B8D6AF10006D372 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38AA574B1B8D6AF10006D372 /* Info.plist */,
+				38AA574C1B8D6AF10006D372 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38AA57631B8D6AF10006D372 /* ConvenieceReactiveCocaoTests */ = {
+			isa = PBXGroup;
+			children = (
+				38AA57661B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m */,
+				38AA57641B8D6AF10006D372 /* Supporting Files */,
+			);
+			path = ConvenieceReactiveCocaoTests;
+			sourceTree = "<group>";
+		};
+		38AA57641B8D6AF10006D372 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38AA57651B8D6AF10006D372 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74352DB7E40B10A0583CA7D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5B5C570797CBEDCD19BCA6D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5DCAF89B9A232C9B5E2DEDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B4A8B86A5C6F8E8B4839CAB /* Pods.debug.xcconfig */,
+				8202997FCE345F25E4747FB1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38AA57461B8D6AF10006D372 /* ConvenieceReactiveCocao */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38AA576A1B8D6AF10006D372 /* Build configuration list for PBXNativeTarget "ConvenieceReactiveCocao" */;
+			buildPhases = (
+				3C9E865E994765C737F4603F /* Check Pods Manifest.lock */,
+				38AA57431B8D6AF10006D372 /* Sources */,
+				38AA57441B8D6AF10006D372 /* Frameworks */,
+				38AA57451B8D6AF10006D372 /* Resources */,
+				9B3F87583D0D2613AC66FDEB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConvenieceReactiveCocao;
+			productName = ConvenieceReactiveCocao;
+			productReference = 38AA57471B8D6AF10006D372 /* ConvenieceReactiveCocao.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38AA575F1B8D6AF10006D372 /* ConvenieceReactiveCocaoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38AA576D1B8D6AF10006D372 /* Build configuration list for PBXNativeTarget "ConvenieceReactiveCocaoTests" */;
+			buildPhases = (
+				38AA575C1B8D6AF10006D372 /* Sources */,
+				38AA575D1B8D6AF10006D372 /* Frameworks */,
+				38AA575E1B8D6AF10006D372 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38AA57621B8D6AF10006D372 /* PBXTargetDependency */,
+			);
+			name = ConvenieceReactiveCocaoTests;
+			productName = ConvenieceReactiveCocaoTests;
+			productReference = 38AA57601B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38AA573F1B8D6AF10006D372 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = ssdd;
+				TargetAttributes = {
+					38AA57461B8D6AF10006D372 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					38AA575F1B8D6AF10006D372 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 38AA57461B8D6AF10006D372;
+					};
+				};
+			};
+			buildConfigurationList = 38AA57421B8D6AF10006D372 /* Build configuration list for PBXProject "ConvenieceReactiveCocao" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38AA573E1B8D6AF10006D372;
+			productRefGroup = 38AA57481B8D6AF10006D372 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38AA57461B8D6AF10006D372 /* ConvenieceReactiveCocao */,
+				38AA575F1B8D6AF10006D372 /* ConvenieceReactiveCocaoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38AA57451B8D6AF10006D372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38AA57561B8D6AF10006D372 /* Main.storyboard in Resources */,
+				38AA575B1B8D6AF10006D372 /* LaunchScreen.xib in Resources */,
+				38AA57581B8D6AF10006D372 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38AA575E1B8D6AF10006D372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C9E865E994765C737F4603F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9B3F87583D0D2613AC66FDEB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38AA57431B8D6AF10006D372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38AA57531B8D6AF10006D372 /* ViewController.m in Sources */,
+				38AA57501B8D6AF10006D372 /* AppDelegate.m in Sources */,
+				38AA574D1B8D6AF10006D372 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38AA575C1B8D6AF10006D372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38AA57671B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38AA57621B8D6AF10006D372 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38AA57461B8D6AF10006D372 /* ConvenieceReactiveCocao */;
+			targetProxy = 38AA57611B8D6AF10006D372 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		38AA57541B8D6AF10006D372 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38AA57551B8D6AF10006D372 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		38AA57591B8D6AF10006D372 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38AA575A1B8D6AF10006D372 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38AA57681B8D6AF10006D372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		38AA57691B8D6AF10006D372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38AA576B1B8D6AF10006D372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B4A8B86A5C6F8E8B4839CAB /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ConvenieceReactiveCocao/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		38AA576C1B8D6AF10006D372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8202997FCE345F25E4747FB1 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ConvenieceReactiveCocao/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		38AA576E1B8D6AF10006D372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ConvenieceReactiveCocaoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConvenieceReactiveCocao.app/ConvenieceReactiveCocao";
+			};
+			name = Debug;
+		};
+		38AA576F1B8D6AF10006D372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ConvenieceReactiveCocaoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConvenieceReactiveCocao.app/ConvenieceReactiveCocao";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38AA57421B8D6AF10006D372 /* Build configuration list for PBXProject "ConvenieceReactiveCocao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38AA57681B8D6AF10006D372 /* Debug */,
+				38AA57691B8D6AF10006D372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38AA576A1B8D6AF10006D372 /* Build configuration list for PBXNativeTarget "ConvenieceReactiveCocao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38AA576B1B8D6AF10006D372 /* Debug */,
+				38AA576C1B8D6AF10006D372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38AA576D1B8D6AF10006D372 /* Build configuration list for PBXNativeTarget "ConvenieceReactiveCocaoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38AA576E1B8D6AF10006D372 /* Debug */,
+				38AA576F1B8D6AF10006D372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 38AA573F1B8D6AF10006D372 /* Project object */;
+}
