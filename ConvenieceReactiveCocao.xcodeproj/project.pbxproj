@@ -15,6 +15,7 @@
 		38AA57581B8D6AF10006D372 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AA57571B8D6AF10006D372 /* Images.xcassets */; };
 		38AA575B1B8D6AF10006D372 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AA57591B8D6AF10006D372 /* LaunchScreen.xib */; };
 		38AA57671B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57661B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m */; };
+		38AA57721B8D99500006D372 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57711B8D99500006D372 /* MyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		38AA57601B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvenieceReactiveCocaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AA57651B8D6AF10006D372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38AA57661B8D6AF10006D372 /* ConvenieceReactiveCocaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConvenieceReactiveCocaoTests.m; sourceTree = "<group>"; };
+		38AA57701B8D99500006D372 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		38AA57711B8D99500006D372 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		8202997FCE345F25E4747FB1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F5B5C570797CBEDCD19BCA6D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +99,8 @@
 				38AA57571B8D6AF10006D372 /* Images.xcassets */,
 				38AA57591B8D6AF10006D372 /* LaunchScreen.xib */,
 				38AA574A1B8D6AF10006D372 /* Supporting Files */,
+				38AA57701B8D99500006D372 /* MyViewController.h */,
+				38AA57711B8D99500006D372 /* MyViewController.m */,
 			);
 			path = ConvenieceReactiveCocao;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			files = (
 				38AA57531B8D6AF10006D372 /* ViewController.m in Sources */,
 				38AA57501B8D6AF10006D372 /* AppDelegate.m in Sources */,
+				38AA57721B8D99500006D372 /* MyViewController.m in Sources */,
 				38AA574D1B8D6AF10006D372 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,10 +412,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B4A8B86A5C6F8E8B4839CAB /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ConvenieceReactiveCocao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
 			};
 			name = Debug;
 		};
@@ -417,10 +425,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8202997FCE345F25E4747FB1 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ConvenieceReactiveCocao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
 			};
 			name = Release;
 		};
