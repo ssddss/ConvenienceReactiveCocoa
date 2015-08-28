@@ -37,6 +37,11 @@
     
     [self racDelegate];
     
+    [self connectTwoSignal];
+    
+    [self mergeSignals];
+    
+    [self combinationSignals];
 }
 /**
  *  观察某个值
@@ -117,7 +122,62 @@
     [self makeAnApp];
     
 }
+/**
+ *  连接
+ */
+- (void)connectTwoSignal {
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"买房了"];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"日狗了"];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+    
+    [[signalA concat:signalB]subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+}
+/**
+ *  合并
+ */
+- (void)mergeSignals {
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"垃圾袋"];
+        [subscriber sendCompleted];
 
+        return nil;
+    }];
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"吸管"];
+        [subscriber sendCompleted];
+
+        return nil;
+    }];
+    
+    [[RACSignal merge:@[signalA,signalB]]subscribeNext:^(id x) {
+        NSLog(@"处理%@",x);
+    }];
+
+}
+- (void)combinationSignals {
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [subscriber sendNext:@"红"];
+//        [subscriber sendNext:@"白"];
+        return nil;
+    }];
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [subscriber sendNext:@"白"];
+        return nil;
+    }];
+    [[RACSignal combineLatest:@[signalA, signalB]] subscribeNext:^(RACTuple* x) {
+        RACTupleUnpack(NSString *stringA, NSString *stringB) = x;
+        NSLog(@"我们是%@%@的", stringA, stringB);
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
