@@ -42,6 +42,14 @@
     [self mergeSignals];
     
     [self combinationSignals];
+    
+    [self zipSignals];
+    
+    [self mapSignal];
+    
+    [self twoSignalsAdded];
+    
+    [self filterSiganl];
 }
 /**
  *  观察某个值
@@ -163,19 +171,104 @@
     }];
 
 }
+/**
+ *  组合,你是红的，我是黄的，我们就是红黄的，你是白的，我没变，我们是白黄的。一个去跟另一个组合起来
+ */
 - (void)combinationSignals {
     RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id subscriber) {
         [subscriber sendNext:@"红"];
-//        [subscriber sendNext:@"白"];
+        [subscriber sendNext:@"白"];
         return nil;
     }];
     RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id subscriber) {
-        [subscriber sendNext:@"白"];
+        [subscriber sendNext:@"黄"];
+//        [subscriber sendNext:@"白"];
         return nil;
     }];
     [[RACSignal combineLatest:@[signalA, signalB]] subscribeNext:^(RACTuple* x) {
         RACTupleUnpack(NSString *stringA, NSString *stringB) = x;
         NSLog(@"我们是%@%@的", stringA, stringB);
+    }];
+}
+/**
+ *  压缩,你是红的，我是黄的，我们就是红黄的，你是白的，我没变，哦，那就等我变了再说吧,B再发一个对应A中的下一个
+ */
+- (void)zipSignals {
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"红"];
+
+        [subscriber sendNext:@"白"];
+        
+        [subscriber sendNext:@"绿"];
+
+
+        return nil;
+    }];
+    
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"黄"];
+        [subscriber sendNext:@"白"];
+        [subscriber sendNext:@"橙"];
+
+        return nil;
+    }];
+    [[signalA zipWith:signalB] subscribeNext:^(id x) {
+        RACTupleUnpack(NSString *stringA,NSString *stringB) = x;
+        NSLog(@"我们是%@%@",stringA,stringB);
+    }];
+    
+}
+/**
+ *  映射,我可以点石成金。
+ */
+- (void)mapSignal {
+    RACSignal *signalA = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"fufe"];
+        return nil;
+    }]map:^id(id value) {
+        if ([value isEqualToString:@"石"]) {
+            return @"金";
+        }
+        return value;
+    }];
+    [signalA subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+}
+/**
+ *  归约
+ 
+ 糖加水变成糖水。
+ */
+- (void)twoSignalsAdded {
+    RACSignal *sugarSignal = [RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [subscriber sendNext:@"糖"];
+        return nil;
+    }];
+    RACSignal *waterSignal = [RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [subscriber sendNext:@"水"];
+        return nil;
+    }];
+    [[RACSignal combineLatest:@[sugarSignal,waterSignal] reduce:^id(NSString *sugar,NSString *water){
+        return [sugar stringByAppendingString:water];
+    }]subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+}
+/**
+ *  过滤
+ */
+- (void)filterSiganl {
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@10];
+        [subscriber sendNext:@15];
+        [subscriber sendNext:@40];
+        [subscriber sendNext:@20];
+        return nil;
+    }]filter:^BOOL(id value) {
+        return [value integerValue] < 19;
+    }]subscribeNext:^(id x) {
+        NSLog(@"%@",x);
     }];
 }
 - (void)didReceiveMemoryWarning {
