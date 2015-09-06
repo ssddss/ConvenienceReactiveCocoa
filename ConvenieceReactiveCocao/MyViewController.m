@@ -9,7 +9,8 @@
 #import "MyViewController.h"
 #import "ReactiveCocoa.h"
 @interface MyViewController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *commandButon;
+@property (nonatomic,copy) NSString *str;
 @end
 
 @implementation MyViewController
@@ -18,6 +19,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self registerNotification];
+    @weakify(self)
+   __block NSString *strl = @"abc";
+    self.commandButon.rac_command = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        NSLog(@"click");
+        @strongify(self)
+        self.str = @"abc";
+        strl = @"111";
+        return [RACSignal empty];
+    }];
 }
 - (void)dealloc {
     NSLog(@"内存清了");

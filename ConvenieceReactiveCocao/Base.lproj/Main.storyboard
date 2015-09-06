@@ -55,10 +55,24 @@
                                     <action selector="clicked:" destination="zcC-9d-QaD" eventType="touchUpInside" id="Xrb-16-wO0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-Oo-nT2">
+                                <rect key="frame" x="16" y="212" width="144" height="30"/>
+                                <color key="backgroundColor" red="0.094117647060000004" green="0.70588235290000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="RacCommand">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="select">
+                                    <color key="titleColor" red="0.094117647060000004" green="0.70588235290000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="hight"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cWU-hT-swe"/>
+                    <connections>
+                        <outlet property="commandButon" destination="MUn-Oo-nT2" id="nLX-eM-lyt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Of-IP-9ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
