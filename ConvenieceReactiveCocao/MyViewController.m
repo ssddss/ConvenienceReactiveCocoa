@@ -28,10 +28,16 @@
         strl = @"111";
         return [RACSignal empty];
     }];
+    
+    [[RACSignal interval:5 onScheduler:[RACScheduler mainThreadScheduler] withLeeway:0] subscribeNext:^(id x) {
+        NSLog(@"吃药了你");
+    }];
 }
 - (void)dealloc {
     NSLog(@"内存清了");
+    [[NSNotificationCenter defaultCenter]removeObserver:self];    
 }
+
 - (void)registerNotification {
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"代码之道频道" object:nil] subscribeNext:^(NSNotification* x) {
         NSLog(@"技巧：%@", x.userInfo[@"技巧"]);

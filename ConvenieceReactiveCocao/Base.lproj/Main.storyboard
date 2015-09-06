@@ -25,10 +25,28 @@
                                     <segue destination="zcC-9d-QaD" kind="push" id="GOG-Sv-EoZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuK-5u-jw6">
+                                <rect key="frame" x="61" y="213" width="69" height="30"/>
+                                <state key="normal" title="command">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q7Z-pp-dqr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhS-4V-mWV">
+                                <rect key="frame" x="54" y="306" width="31" height="30"/>
+                                <state key="normal" title="post">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="pEG-5t-vW3"/>
+                    <connections>
+                        <outlet property="postNotification" destination="ZhS-4V-mWV" id="OnS-Rp-24E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

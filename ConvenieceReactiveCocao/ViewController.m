@@ -20,6 +20,7 @@
 @interface ViewController ()<ViewControllerDelegate>
 @property (nonatomic,copy) NSString *strValue;
 @property (nonatomic,copy) NSString *valueA;
+@property (weak, nonatomic) IBOutlet UIButton *postNotification;
 @property (nonatomic,copy) NSString *valueB;
 @end
 
@@ -50,7 +51,35 @@
     [self twoSignalsAdded];
     
     [self filterSiganl];
+    
+    [self flattenMap];
+    
+    [self order];
+    
+    [self delay];
+    
+    [self anchor];
+    
+    [self timing];
+    
+    [self overTime];
+    
+    [self tryAgainAndAgain];
+    
+    [self limit];
+    
+    [self condition];
+    
+    self.postNotification.rac_command = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"代码之道频道" object:nil userInfo:@{@"技巧":@"用心写"}];
+        return [RACSignal empty];
+    }];
 }
+- (IBAction)clicked:(UIButton *)sender {
+    [self command];
+
+}
+
 /**
  *  观察某个值
  */
@@ -269,6 +298,196 @@
         return [value integerValue] < 19;
     }]subscribeNext:^(id x) {
         NSLog(@"%@",x);
+    }];
+}
+/**
+ *  扁平
+ 
+ 打蛋液，煎鸡蛋，上盘。
+ */
+- (void)flattenMap {
+    [[[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSLog(@"打蛋液");
+        [subscriber sendNext:@"蛋液"];
+        [subscriber sendCompleted];
+        return nil;
+    }] flattenMap:^RACStream *(id value) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSLog(@"把%@倒进锅里",value);
+            [subscriber sendNext:@"煎蛋"];
+            [subscriber sendCompleted];
+            return nil;
+        }];
+    }] flattenMap:^RACStream *(id value) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSLog(@"把%@装到盘里",value);
+            [subscriber sendNext:@"上菜"];
+            [subscriber sendCompleted];
+            return nil;
+        }];
+    }] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+}
+/**
+ *  秩序 把大象塞进冰箱只需要三步：打开冰箱门，把大象塞进冰箱，关上冰箱门。
+ */
+- (void)order {
+    [[[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSLog(@"打开冰箱门");
+        [subscriber sendCompleted];
+        return nil;
+    }] then:^RACSignal *{
+        return  [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSLog(@"把大象塞进冰箱");
+            [subscriber sendCompleted];
+            return nil;
+        }];
+    }] then:^RACSignal *{
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSLog(@"关上冰箱门");
+            [subscriber sendCompleted];
+            return nil;
+        }];
+    }] subscribeCompleted:^{
+        NSLog(@"把大象塞进冰箱了");
+    }];
+}
+/**
+ *  命令
+ */
+- (void)command {
+    RACCommand *aCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSLog(@"我投降了");
+            [subscriber sendCompleted];
+            return nil;
+        }];
+    }];
+    [aCommand execute:nil];
+}
+/**
+ *  延迟
+ */
+- (void)delay {
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSLog(@"等5秒");
+        [subscriber sendNext:@"ssdd"];
+        [subscriber sendCompleted];
+        return nil;
+    }] delay:5] subscribeNext:^(id x) {
+        NSLog(@"%@到了",x);
+    }];
+}
+/**
+ *  重放
+ */
+- (void)anchor {
+    RACSignal *replaySignal = [[RACSignal createSignal:^RACDisposable *(id subscriber) {
+        NSLog(@"大导演拍了一部电影《我的男票是程序员》");
+        [subscriber sendNext:@"《我的男票是程序员》"];
+        return nil;
+    }] replay];
+    [replaySignal subscribeNext:^(id x) {
+        NSLog(@"小明看了%@", x);
+    }];
+    [replaySignal subscribeNext:^(id x) {
+        NSLog(@"小红也看了%@", x);
+    }];
+}
+/**
+ *  定时
+ */
+- (void)timing {
+    
+    [[RACSignal interval:5 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+        NSLog(@"吃药");
+    }];
+}
+/**
+ *  超时
+ */
+- (void)overTime {
+    [[[RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [[[RACSignal createSignal:^RACDisposable *(id subscriber) {
+            NSLog(@"我快到了");
+            [subscriber sendNext:nil];
+            [subscriber sendCompleted];
+            return nil;
+        }] delay:5] subscribeNext:^(id x) {
+            [subscriber sendNext:nil];
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }] timeout:3 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+        NSLog(@"我按时到达了");
+
+    } error:^(NSError *error) {
+        NSLog(@"等了你一个小时了，你还没来，我走了");
+
+    }];
+    
+}
+/**
+ *  重试
+ */
+- (void)tryAgainAndAgain {
+    __block int failedCount = 1;
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        if (failedCount < 5) {
+            NSLog(@"失败第%d次",failedCount);
+            failedCount++;
+            [subscriber sendError:nil];
+        }
+        else {
+            NSLog(@"经历了%d次后",failedCount);
+            [subscriber sendNext:nil];
+        }
+        return nil;
+        
+    }] retry] subscribeNext:^(id x) {
+        NSLog(@"终于成功了");
+    }];
+}
+/**
+ *  节流 不好意思，这里一秒钟只能通过一个人。
+ */
+- (void)limit {
+    [[[RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [subscriber sendNext:@"旅客A"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@"旅客B"];
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@"旅客C"];
+            [subscriber sendNext:@"旅客D"];
+            [subscriber sendNext:@"旅客E"];
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@"旅客F"];
+        });
+        return nil;
+    }] throttle:1] subscribeNext:^(id x) {
+        NSLog(@"%@通过了",x);
+    }];
+}
+/**
+ *  条件
+ */
+- (void)condition {
+    [[[RACSignal createSignal:^RACDisposable *(id subscriber) {
+        [[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+            [subscriber sendNext:@"直到世界的尽头才能把我们分开"];
+        }];
+        return nil;
+    }] takeUntil:[RACSignal createSignal:^RACDisposable *(id subscriber) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"世界的尽头到了");
+            [subscriber sendNext:@"世界的尽头到了"];
+        });
+        return nil;
+    }]] subscribeNext:^(id x) {
+        NSLog(@"%@", x);
     }];
 }
 - (void)didReceiveMemoryWarning {
