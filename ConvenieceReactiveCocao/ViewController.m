@@ -70,9 +70,11 @@
     
     [self condition];
     
-    self.postNotification.rac_command = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+    [[self.postNotification rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"代码之道频道" object:nil userInfo:@{@"技巧":@"用心写"}];
-        return [RACSignal empty];
+
+    } error:^(NSError *error) {
+        
     }];
 }
 - (IBAction)clicked:(UIButton *)sender {
